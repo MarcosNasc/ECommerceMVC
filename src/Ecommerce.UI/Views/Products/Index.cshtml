@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Ecommerce.UI.Models.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Products List";
+}
+
+<h1>@ViewData["Title"]</h1>
+<vc:summary></vc:summary>
+<p>
+    <a class="btn btn-info text-white" asp-action="Create" supress-by-claim-name="Product" supress-by-claim-value="C">Create New</a>
+</p>
+
+<partial name="_ProductsList"/>
+
+@section Scripts {
+    @if (ViewBag.ItemDeleted)
+    {
+        <text>
+            <script type="text/javascript">
+                function showNotification() {
+                    toastr.success("Item excluído com sucesso.");
+                }
+                showNotification();
+            </script>
+        </text>
+    }
+}
+

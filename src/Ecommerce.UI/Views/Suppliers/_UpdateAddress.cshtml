@@ -1,0 +1,29 @@
+﻿@model SupplierViewModel
+@{
+    ViewData["Title"] = "Atualizar Endereço";
+}
+
+<div class="modal-header">
+    <h4 class="modal-title">@ViewData["Title"]</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+
+<form asp-action="UpdateAddress">
+    <div class="modal-body">
+
+        <input type="hidden" asp-for="Address.SupplierId" />
+        <input type="hidden" asp-for="Address.Id" />
+
+        <partial name="_Address" />
+
+    </div>
+    <div class="modal-footer">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="submit" value="Update" class="btn btn-success" />
+            <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</form>
+<script>
+    buscaCep();
+</script>

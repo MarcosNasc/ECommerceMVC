@@ -1,0 +1,58 @@
+﻿@model ProductViewModel
+
+@{
+    ViewData["Title"] = "Product of Details - " + Model.Name;
+}
+
+<h4 style="padding-top: 50px">@ViewData["Title"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <img src="~/images/@Model.Image" alt="@Model.Image" style="width: 300px; height: 428px" />
+    </div>
+    <div class="col-md-6">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.SupplierId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Supplier.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Value)
+            </dt>
+            <dd>
+                @Model.Value.ToString("C")
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+            <dd>
+                @Model.CreatedDate.ToString("dd/MM/yyyy")
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+        </dl>
+
+        <div>
+            <a supress-by-claim-name="Produto" supress-by-claim-value="Editar" class="btn btn-dark" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> 
+            <a class="btn btn-info text-white" href="javascript:window.history.back();">Voltar</a>
+        </div>
+    </div>
+</div>

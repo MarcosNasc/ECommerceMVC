@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/EcommerceNETMVC/providers/Microsoft.ServiceLinker/linkers/ConnectionAzureSQLServer_A70CD5129A",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/ecommercenetmvc/databases/Ecommercenetmvc",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionAzureSQLServer"
+    }
+  }
+}

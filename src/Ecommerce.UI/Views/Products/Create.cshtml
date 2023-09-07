@@ -1,0 +1,76 @@
+﻿@model Ecommerce.UI.Models.ProductViewModel
+
+@{
+    ViewData["Title"] = "New Product";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <vc:summary></vc:summary>
+
+            <div class="form-group">
+                <label asp-for="SupplierId" class="control-label"></label>
+
+                @{
+                    var supplierItems = new SelectList(Model.Suppliers, "Id", "Name");
+                }
+                <select asp-for="SupplierId" class="form-select" asp-items="supplierItems">
+                    <option></option>
+                </select>
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea cols="40" rows="5" asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="ImageUpload" class="form-label"></label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="image_name" readonly>
+                    <div class="input-group-append">
+                        <label class="input-group-text btn btn-secondary">
+                            Search
+                            <input type="file" id="imageUpload" asp-for="ImageUpload" style="display: none;">
+                        </label>
+                    </div>
+                </div>
+                <span asp-validation-for="ImageUpload" class="text-danger" id="error-message"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Value" class="control-label"></label>
+                <input asp-for="Value" class="form-control" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+  
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" id="btnCreate" />
+                <a class="btn btn-info text-white" asp-action="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
